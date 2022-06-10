@@ -1,5 +1,33 @@
 const Card = (article) => {
-  // TASK 5
+  const card = document.createElement('div');
+  const headline = document.createElement('div');
+  const author = document.createElement('div');
+  const imgContainer = document.createElement('div');
+  const img = document.createElement('img');
+  const authorName = document.createElement('span');
+
+  card.classList.add('card');
+  headline.classList.add('headline');
+  author.classList.add('author');
+  imgContainer.classList.add('img-container');
+
+  card.appendChild(headline);
+  card.appendChild(author);
+  author.appendChild(imgContainer);
+  imgContainer.appendChild(img);
+  author.appendChild(authorName);
+
+  headline.textContent = article.headline;
+  authorName.textContent = article.authorName;
+  img.src = article.authorPhoto;
+
+  card.addEventListener('click', item => {
+    console.log(headline)
+  })
+  return card
+
+
+  // TASK 5;
   // ---------------------
   // Implement this function, which should return the markup you see below.
   // It takes as its only argument an "article" object with `headline`, `authorPhoto` and `authorName` properties.

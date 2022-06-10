@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const Tabs = (topics) => {
   const topic = document.createElement('div');
   topic.classList.add('topics');
@@ -30,6 +32,13 @@ const Tabs = (topics) => {
 }
 
 const tabsAppender = (selector) => {
+  axios.get('http://localhost:5001/api/topics')
+    .then(res => {
+      document.querySelector(selector).appendChild(Tabs(res.data.topics))
+    })
+    .catch(() => {
+      console.log('error')
+    })
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
